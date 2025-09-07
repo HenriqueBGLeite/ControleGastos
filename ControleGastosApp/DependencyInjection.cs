@@ -1,4 +1,6 @@
-﻿using Database.Config;
+﻿using ControleGastosApp.Pages;
+using ControleGastosApp.ViewModels;
+using Database.Config;
 using Database.Repositories.Categories;
 using Database.Repositories.Transactions;
 using Database.Repositories.Users;
@@ -17,8 +19,20 @@ namespace ControleGastosApp
         public static IServiceCollection AddMauiServices(this IServiceCollection services)
         {
             return services
+                .AddPages()
                 .AddDatabase();
         }
+
+        private static IServiceCollection AddPages(this IServiceCollection services)
+        {
+            services.AddSingleton<AppShell>();
+
+            services.AddTransient<AuthPage>();
+            services.AddTransient<AuthPageViewModel>();
+
+            return services;
+        }
+
 
         public static IServiceCollection AddProjectServices(this IServiceCollection services)
         {
