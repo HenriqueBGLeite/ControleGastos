@@ -7,22 +7,24 @@
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
     Title=""
     x:DataType="vm:MainPageViewModel">
-    <Grid Padding="22,30">
-        <Image
-            HorizontalOptions="End"
-            Source="logout.png"
-            VerticalOptions="Start"
-            WidthRequest="28">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding ClickedLogoutCommand}" />
-            </Image.GestureRecognizers>
-        </Image>
+    <ScrollView>
+        <Grid Padding="22,30">
+            <Image
+                HorizontalOptions="End"
+                Source="logout.png"
+                VerticalOptions="Start"
+                WidthRequest="28">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClickedLogoutCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
 
-        <VerticalStackLayout VerticalOptions="Center">
-            <Label
-                HorizontalOptions="Center"
-                Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" />
-        </VerticalStackLayout>
-    </Grid>
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Welcome to .NET MAUI!"
+                    VerticalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 </base:BasePage>

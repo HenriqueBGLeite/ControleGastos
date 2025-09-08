@@ -8,35 +8,44 @@
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
     Title=""
     x:DataType="vm:AuthPageViewModel">
-    <VerticalStackLayout
-        Padding="42"
-        Spacing="16"
-        VerticalOptions="Center">
-        <controlsFB:FloatingBorder
-            ErrorMessage="{Binding AuthForm.EmailErrorMessage}"
-            HasError="{Binding AuthForm.EmailErrorMessage, Converter={StaticResource StringToBoolConverter}}"
-            Hint="*E-mail"
-            Icone="email.png">
-            <Entry
-                Keyboard="Email"
-                Placeholder="Digite seu e-mail"
-                ReturnCommand="{Binding ClickedSignInCommand}"
-                ReturnType="Send"
-                Text="{Binding AuthForm.Email}" />
-        </controlsFB:FloatingBorder>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="42"
+            Spacing="16"
+            VerticalOptions="Center">
+            <Image
+                Margin="0,-85,0,0"
+                Source="marca.png"
+                VerticalOptions="Start"
+                WidthRequest="198" />
 
-        <Button
-            Margin="0,60,0,0"
-            Command="{Binding ClickedSignInCommand}"
-            Text="Entrar" />
-        <Label
-            FontSize="12"
-            HorizontalTextAlignment="Center"
-            Text="Não possui uma conta? Crie agora!"
-            TextColor="{StaticResource Primary}">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding ClickedCreateAccountCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
-    </VerticalStackLayout>
+            <controlsFB:FloatingBorder
+                ErrorMessage="{Binding AuthForm.EmailErrorMessage}"
+                HasError="{Binding AuthForm.EmailErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+                Hint="*E-mail"
+                Icone="email.png">
+                <Entry
+                    Keyboard="Email"
+                    Placeholder="Digite seu e-mail"
+                    ReturnCommand="{Binding ClickedSignInCommand}"
+                    ReturnType="Send"
+                    Text="{Binding AuthForm.Email}" />
+            </controlsFB:FloatingBorder>
+
+            <Button
+                Margin="0,60,0,0"
+                Command="{Binding ClickedSignInCommand}"
+                Text="Entrar" />
+            <Label
+                FontSize="12"
+                HorizontalTextAlignment="Center"
+                Text="Não possui uma conta? Crie agora!"
+                TextColor="{StaticResource Primary}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClickedCreateAccountCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+
+    </ScrollView>
 </base:BasePage>
