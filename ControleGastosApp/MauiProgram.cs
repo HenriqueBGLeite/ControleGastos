@@ -15,6 +15,9 @@ namespace ControleGastosApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("OpenSans-Medium.ttf", "OpenSansMedium");
+                    fonts.AddFont("OpenSans-Bold.ttf", "OpenSansBold");
+                    fonts.AddFont("OpenSans-ExtraBold.ttf", "OpenSansExtraBold");
                 });
 
 #if DEBUG

@@ -4,11 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
-    Title="">
-    <VerticalStackLayout>
+    xmlns:controlsFB="clr-namespace:ControleGastosApp.Pages.Controls.FloatingBorder"
+    xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
+    Title=""
+    x:DataType="vm:AuthPageViewModel">
+    <VerticalStackLayout
+        Padding="42"
+        Spacing="16"
+        VerticalOptions="Center">
+        <controlsFB:FloatingBorder Hint="*E-mail" Icone="email.png">
+            <Entry Placeholder="Digite seu e-mail" />
+        </controlsFB:FloatingBorder>
+
+        <Button Margin="0,60,0,0" Text="Entrar" />
         <Label
-            HorizontalOptions="Center"
-            Text="Aqui será a tela de autenticação"
-            VerticalOptions="Center" />
+            FontSize="12"
+            HorizontalTextAlignment="Center"
+            Text="Criar conta"
+            TextColor="{StaticResource Primary}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ClickedCreateAccountCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
     </VerticalStackLayout>
 </base:BasePage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage
+    x:Class="ControleGastosApp.Pages.RegisterUserPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
+    xmlns:controlsFB="clr-namespace:ControleGastosApp.Pages.Controls.FloatingBorder"
+    xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
+    Title=""
+    x:DataType="vm:RegisterUserPageViewModel">
+    <Grid Padding="22,30">
+        <Image
+            HorizontalOptions="Start"
+            Source="fi_arrow_left.png"
+            VerticalOptions="Start"
+            WidthRequest="26">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TapToBackCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <VerticalStackLayout
+            Padding="0,54"
+            Spacing="40"
+            VerticalOptions="Center">
+            <controlsFB:FloatingBorder Hint="Como gostaria de ser chamado?" Icone="fi_user.png">
+                <Entry />
+            </controlsFB:FloatingBorder>
+            <controlsFB:FloatingBorder Hint="Seu melhor e-mail" Icone="email.png">
+                <Entry />
+            </controlsFB:FloatingBorder>
+        </VerticalStackLayout>
+
+        <Button Text="Cadastrar" VerticalOptions="End" />
+    </Grid>
+</base:BasePage>

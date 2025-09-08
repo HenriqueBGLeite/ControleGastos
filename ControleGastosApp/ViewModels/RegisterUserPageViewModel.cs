@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControleGastosApp.ViewModels
 {
-    public partial class AuthPageViewModel : BaseViewModel
+    public partial class RegisterUserPageViewModel : BaseViewModel
     {
         [RelayCommand]
-        private void OnClickedCreateAccount()
+        private void OnTapToBack()
         {
-            Shell.Current.GoToAsync("registerUser");
+            Shell.Current.GoToAsync("..");
         }
     }
 }

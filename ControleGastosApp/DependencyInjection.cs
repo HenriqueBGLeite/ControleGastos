@@ -30,6 +30,9 @@ namespace ControleGastosApp
             services.AddTransient<AuthPage>();
             services.AddTransient<AuthPageViewModel>();
 
+            services.AddTransient<RegisterUserPage>();
+            services.AddTransient<RegisterUserPageViewModel>();
+
             return services;
         }
 

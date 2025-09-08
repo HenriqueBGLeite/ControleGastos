@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="ControleGastosApp.Pages.Controls.FloatingBorder.FloatingBorder"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Root">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <VerticalStackLayout Padding="0" Spacing="0">
+                <Label
+                    Grid.Column="1"
+                    IsVisible="{Binding Hint, Source={x:Reference Root}, Converter={StaticResource StringToBoolConverter}}"
+                    Style="{StaticResource LabelFloatingBorder}"
+                    Text="{Binding Hint, Source={x:Reference Root}}">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HasError, Source={x:Reference Root}}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="{StaticResource ActionRed}" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HasError, Source={x:Reference Root}}"
+                            TargetType="Label"
+                            Value="False">
+                            <Setter Property="TextColor" Value="{StaticResource HintLabel}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Border Background="{Binding BorderBackground, Source={x:Reference Root}}" Style="{StaticResource BorderStyle}">
+                    <Border.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HasError, Source={x:Reference Root}}"
+                            TargetType="Border"
+                            Value="True">
+                            <Setter Property="Background" Value="{StaticResource ErrorBg}" />
+                        </DataTrigger>
+                    </Border.Triggers>
+
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, *">
+                        <Image
+                            Grid.RowSpan="2"
+                            Margin="16,0"
+                            IsVisible="{Binding Icone, Source={x:Reference Root}, Converter={StaticResource StringToBoolConverter}}"
+                            Source="{Binding Icone, Source={x:Reference Root}}"
+                            WidthRequest="20" />
+                        <ContentPresenter Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+                </Border>
+
+                <Label
+                    IsVisible="{Binding HasError, Source={x:Reference Root}}"
+                    Style="{StaticResource LabelErrorFloatingBorder}"
+                    Text="{Binding ErrorMessage, Source={x:Reference Root}}"
+                    TextColor="{Binding ErrorMessageColor, Source={x:Reference Root}}" />
+            </VerticalStackLayout>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

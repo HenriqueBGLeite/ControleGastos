@@ -11,10 +11,15 @@
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
     <Color x:Key="StatusBar">#F5F5F5</Color>
+    <Color x:Key="NavigationBar">#F5F5F5</Color>
 
     <Color x:Key="MainBackground">#F5F5F5</Color>
     <Color x:Key="NewBlack">#4A5050</Color>
     <Color x:Key="AdjacentGreen">#328373</Color>
+    <Color x:Key="ActionRed">#9D2835</Color>
+    <Color x:Key="ErrorBg">#FCF3F2</Color>
+    <Color x:Key="HintLabel">#5E6366</Color>
+    <Color x:Key="Placeholder">#ABAFB1</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
