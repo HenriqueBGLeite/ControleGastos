@@ -33,7 +33,7 @@ namespace ControleGastosApp
 
         private Task<string> DetermineInitialRouteAsync()
         {
-            return Task.FromResult("//Auth");
+            return Task.FromResult("//auth");
         }
 
         private static void CustomHandler()

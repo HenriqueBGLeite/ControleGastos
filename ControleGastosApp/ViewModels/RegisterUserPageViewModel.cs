@@ -52,6 +52,8 @@ namespace ControleGastosApp.ViewModels
                 //TODO - Implementar snackbar para registro criado com sucesso!
 
                 await Shell.Current.DisplaySnackbar("Registro salvo com sucesso");
+
+                await _navigationService.GoBackAsync();
             }
             catch (Exception ex)
             {
@@ -63,7 +65,7 @@ namespace ControleGastosApp.ViewModels
         [RelayCommand]
         private void OnTapToBack()
         {
-            _navigationService.NavigateToPage("Auth");
+            _navigationService.GoBackAsync();
         }
     }
 }

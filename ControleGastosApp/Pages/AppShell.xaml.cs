@@ -7,6 +7,8 @@ namespace ControleGastosApp
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("auth/registerUser", typeof(RegisterUserPage));
         }
 
         protected override void OnNavigated(ShellNavigatedEventArgs args)

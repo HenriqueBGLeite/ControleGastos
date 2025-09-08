@@ -39,7 +39,7 @@ namespace ControleGastosApp.ViewModels
         [RelayCommand]
         private void OnClickedCreateAccount()
         {
-            _navigationService.NavigateToPage("RegisterUser");
+            _navigationService.NavigateToAsync("registerUser");
         }
     }
 }

@@ -5,8 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ControleGastosApp.Pages"
     Title=""
+    FlyoutBehavior="Disabled"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
 
-    <ShellContent ContentTemplate="{DataTemplate local:AuthPage}" Route="Auth" />
-    <ShellContent ContentTemplate="{DataTemplate local:RegisterUserPage}" Route="RegisterUser" />
+    <ShellContent ContentTemplate="{DataTemplate local:AuthPage}" Route="auth" />
 </Shell>

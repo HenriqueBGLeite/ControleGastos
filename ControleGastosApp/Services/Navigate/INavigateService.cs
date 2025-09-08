@@ -3,6 +3,8 @@ namespace ControleGastosApp.Services.Navigate
 {
     public interface INavigateService
     {
-        Task NavigateToPage(string route);
+        Task GoBackAsync();
+        Task NavigateToAsync(string route);
+        Task NavigateToRootAsync(string route);
     }
 }
