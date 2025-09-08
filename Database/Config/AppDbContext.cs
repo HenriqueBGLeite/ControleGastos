@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models;
+﻿using ControleGastos.Core.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,8 @@ namespace Database.Config
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public DbSet<UserModel> Users { get; set; }
-        public DbSet<CategoryModel> Categories { get; set; }
-        public DbSet<TransactionModel> Transactions { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
     }
 }

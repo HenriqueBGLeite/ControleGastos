@@ -12,11 +12,23 @@
         Padding="42"
         Spacing="16"
         VerticalOptions="Center">
-        <controlsFB:FloatingBorder Hint="*E-mail" Icone="email.png">
-            <Entry Placeholder="Digite seu e-mail" />
+        <controlsFB:FloatingBorder
+            ErrorMessage="{Binding AuthForm.EmailErrorMessage}"
+            HasError="{Binding AuthForm.EmailErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+            Hint="*E-mail"
+            Icone="email.png">
+            <Entry
+                Keyboard="Email"
+                Placeholder="Digite seu e-mail"
+                ReturnCommand="{Binding SignInClickedCommand}"
+                ReturnType="Send"
+                Text="{Binding AuthForm.Email}" />
         </controlsFB:FloatingBorder>
 
-        <Button Margin="0,60,0,0" Text="Entrar" />
+        <Button
+            Margin="0,60,0,0"
+            Command="{Binding SignInClickedCommand}"
+            Text="Entrar" />
         <Label
             FontSize="12"
             HorizontalTextAlignment="Center"

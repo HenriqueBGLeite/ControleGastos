@@ -1,10 +1,7 @@
-﻿using Database.Config;
-using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ControleGastos.Core.Domain.Repositories;
+using Database.Config;
+using Microsoft.EntityFrameworkCore;
+using Entities = ControleGastos.Core.Domain.Entities;
 
 namespace Database.Repositories.Users
 {
@@ -17,18 +14,18 @@ namespace Database.Repositories.Users
             _db = db;
         }
 
-        public UserModel? GetByEmail(string email)
+        public async Task<Entities.Users?> GetByEmail(string email, CancellationToken ct = default)
         {
-            return _db.Users.FirstOrDefault(u => u.Email == email);
+            return await _db.Users.FirstOrDefaultAsync(u => u.Email == email, ct);
         }
 
-        public async Task Add(UserModel user, CancellationToken ct = default)
+        public async Task Add(Entities.Users user, CancellationToken ct = default)
         {
             _db.Users.Add(user);
             await _db.SaveChangesAsync(ct);
         }
 
-        public async Task Update(UserModel user, CancellationToken ct = default)
+        public async Task Update(Entities.Users user, CancellationToken ct = default)
         {
             _db.Users.Update(user);
             await _db.SaveChangesAsync(ct);

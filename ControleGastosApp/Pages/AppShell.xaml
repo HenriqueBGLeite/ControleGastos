@@ -8,4 +8,5 @@
     Shell.NavBarIsVisible="False">
 
     <ShellContent ContentTemplate="{DataTemplate local:AuthPage}" Route="Auth" />
+    <ShellContent ContentTemplate="{DataTemplate local:RegisterUserPage}" Route="RegisterUser" />
 </Shell>

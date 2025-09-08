@@ -21,16 +21,35 @@
 
         <VerticalStackLayout
             Padding="0,54"
-            Spacing="40"
+            Spacing="30"
             VerticalOptions="Center">
-            <controlsFB:FloatingBorder Hint="Como gostaria de ser chamado?" Icone="fi_user.png">
-                <Entry />
+            <controlsFB:FloatingBorder
+                ErrorMessage="{Binding UserForm.UserNameErrorMessage}"
+                HasError="{Binding UserForm.UserNameErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+                Hint="Como gostaria de ser chamado?"
+                Icone="fi_user.png">
+                <Entry
+                    Placeholder="Digite seu nome"
+                    ReturnType="Next"
+                    Text="{Binding UserForm.UserName}" />
             </controlsFB:FloatingBorder>
-            <controlsFB:FloatingBorder Hint="Seu melhor e-mail" Icone="email.png">
-                <Entry />
+            <controlsFB:FloatingBorder
+                ErrorMessage="{Binding UserForm.EmailErrorMessage}"
+                HasError="{Binding UserForm.EmailErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+                Hint="Seu melhor e-mail"
+                Icone="email.png">
+                <Entry
+                    Keyboard="Email"
+                    Placeholder="Digite seu e-mail"
+                    ReturnCommand="{Binding RegisterUserClickedCommand}"
+                    ReturnType="Send"
+                    Text="{Binding UserForm.Email}" />
             </controlsFB:FloatingBorder>
         </VerticalStackLayout>
 
-        <Button Text="Cadastrar" VerticalOptions="End" />
+        <Button
+            Command="{Binding RegisterUserClickedCommand}"
+            Text="Cadastrar"
+            VerticalOptions="End" />
     </Grid>
 </base:BasePage>
