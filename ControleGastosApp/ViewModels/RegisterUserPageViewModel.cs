@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ControleGastos.Core.Application.UseCases.RegisterUser;
 using ControleGastos.Core.Domain.Entities;
+using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Navigate;
 using ControleGastosApp.ViewModels.Base;
 using ControleGastosApp.ViewModels.FormModels;
@@ -17,6 +18,7 @@ namespace ControleGastosApp.ViewModels
     public partial class RegisterUserPageViewModel : BaseViewModel
     {
         private INavigateService _navigationService;
+        private IShellAlertService _shellAlertService;
         private IRegisterUserUseCase _registerUserUseCase;
 
         [ObservableProperty]
@@ -24,15 +26,17 @@ namespace ControleGastosApp.ViewModels
 
         public RegisterUserPageViewModel(RegisterUserFormModel userForm,
             INavigateService navigationService,
-            IRegisterUserUseCase registerUserUseCase)
+            IRegisterUserUseCase registerUserUseCase,
+            IShellAlertService shellAlertService)
         {
             _userForm = userForm;
             _navigationService = navigationService;
             _registerUserUseCase = registerUserUseCase;
+            _shellAlertService = shellAlertService;
         }
 
         [RelayCommand]
-        private async Task OnRegisterUserClicked()
+        private async Task OnClickedRegisterUser()
         {
             try
             {
@@ -51,14 +55,14 @@ namespace ControleGastosApp.ViewModels
 
                 //TODO - Implementar snackbar para registro criado com sucesso!
 
-                await Shell.Current.DisplaySnackbar("Registro salvo com sucesso");
+                await _shellAlertService.ShowSnackBarAsync("Registro salvo com sucesso");
 
                 await _navigationService.GoBackAsync();
             }
             catch (Exception ex)
             {
                 //TODO - Implementar snackbar para erro ao criado
-                await Shell.Current.DisplaySnackbar($"Erro ao salvar registro. \n\n {ex.Message}");
+                await _shellAlertService.ShowSnackBarAsync($"Erro ao salvar registro. \n\n {ex.Message}");
             }
         }
 

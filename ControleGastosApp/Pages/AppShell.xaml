@@ -11,4 +11,5 @@
     Shell.NavBarIsVisible="False">
 
     <ShellContent ContentTemplate="{DataTemplate local:AuthPage}" Route="auth" />
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="main" />
 </Shell>

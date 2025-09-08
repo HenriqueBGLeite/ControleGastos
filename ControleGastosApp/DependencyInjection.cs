@@ -1,6 +1,9 @@
-﻿using ControleGastos.Core.Application.UseCases.RegisterUser;
+﻿using ControleGastos.Core.Application.UseCases.Auth;
+using ControleGastos.Core.Application.UseCases.RegisterUser;
 using ControleGastos.Core.Domain.Repositories;
 using ControleGastosApp.Pages;
+using ControleGastosApp.Services.Alert;
+using ControleGastosApp.Services.Alert.Providers;
 using ControleGastosApp.Services.Navigate;
 using ControleGastosApp.ViewModels;
 using ControleGastosApp.ViewModels.FormModels;
@@ -39,6 +42,9 @@ namespace ControleGastosApp
             services.AddTransient<RegisterUserPage>();
             services.AddTransient<RegisterUserPageViewModel>();
 
+            services.AddTransient<MainPage>();
+            services.AddTransient<MainPageViewModel>();
+
             return services;
         }
 
@@ -53,6 +59,8 @@ namespace ControleGastosApp
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddSingleton<INavigateService, NavigateService>();
+            services.AddSingleton<ICurrentPageProvider, CurrentPageProvider>();
+            services.AddSingleton<IShellAlertService, ShellAlertService>();
 
             return services;
         }
@@ -67,6 +75,7 @@ namespace ControleGastosApp
         private static IServiceCollection AddApplicationLayer(this IServiceCollection services)
         {
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IAuthUseCase, AuthUseCase>();
 
             return services;
         }

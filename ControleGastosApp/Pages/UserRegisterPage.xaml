@@ -41,14 +41,14 @@
                 <Entry
                     Keyboard="Email"
                     Placeholder="Digite seu e-mail"
-                    ReturnCommand="{Binding RegisterUserClickedCommand}"
+                    ReturnCommand="{Binding ClickedRegisterUserCommand}"
                     ReturnType="Send"
                     Text="{Binding UserForm.Email}" />
             </controlsFB:FloatingBorder>
         </VerticalStackLayout>
 
         <Button
-            Command="{Binding RegisterUserClickedCommand}"
+            Command="{Binding ClickedRegisterUserCommand}"
             Text="Cadastrar"
             VerticalOptions="End" />
     </Grid>

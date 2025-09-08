@@ -1,5 +1,8 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ControleGastos.Core.Application.UseCases.Auth;
+using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Navigate;
 using ControleGastosApp.ViewModels.Base;
 using ControleGastosApp.ViewModels.FormModels;
@@ -14,26 +17,41 @@ namespace ControleGastosApp.ViewModels
     public partial class AuthPageViewModel : BaseViewModel
     {
         private INavigateService _navigationService;
+        private IShellAlertService _shellAlertService;
+        private IAuthUseCase _authUseCase;
 
         [ObservableProperty]
         private AuthFormModel _authForm;
 
-        public AuthPageViewModel(AuthFormModel authForm, 
-            INavigateService navigationService)
+        public AuthPageViewModel(AuthFormModel authForm,
+            INavigateService navigationService,
+            IAuthUseCase authUseCase,
+            IShellAlertService shellAlertService)
         {
             _authForm = authForm;
             _navigationService = navigationService;
+            _authUseCase = authUseCase;
+            _shellAlertService = shellAlertService;
         }
 
         [RelayCommand]
-        private async Task OnSignInClicked()
+        private async Task OnClickedSignIn()
         {
-            bool isValid = AuthForm.Validate();
+            try
+            {
+                bool isValid = AuthForm.Validate();
 
-            if (!isValid)
-                return;
+                if (!isValid)
+                    return;
 
-            return;
+                if (AuthForm.Email != null && await _authUseCase.OnValidateUserToDatabase(AuthForm.Email))
+                    await _navigationService.NavigateToRootAsync("main");
+            }
+            catch (Exception ex)
+            {
+                //TODO - Implementar snackbar para erro ao criado
+                await _shellAlertService.ShowSnackBarAsync($"Erro na autentição. \n\n {ex.Message}");
+            }
         }
 
         [RelayCommand]

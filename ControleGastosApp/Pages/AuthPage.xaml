@@ -20,19 +20,19 @@
             <Entry
                 Keyboard="Email"
                 Placeholder="Digite seu e-mail"
-                ReturnCommand="{Binding SignInClickedCommand}"
+                ReturnCommand="{Binding ClickedSignInCommand}"
                 ReturnType="Send"
                 Text="{Binding AuthForm.Email}" />
         </controlsFB:FloatingBorder>
 
         <Button
             Margin="0,60,0,0"
-            Command="{Binding SignInClickedCommand}"
+            Command="{Binding ClickedSignInCommand}"
             Text="Entrar" />
         <Label
             FontSize="12"
             HorizontalTextAlignment="Center"
-            Text="Criar conta"
+            Text="Não possui uma conta? Crie agora!"
             TextColor="{StaticResource Primary}">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ClickedCreateAccountCommand}" />

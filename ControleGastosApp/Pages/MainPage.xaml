@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage
+    x:Class="ControleGastosApp.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
+    xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
+    Title=""
+    x:DataType="vm:MainPageViewModel">
+    <Grid Padding="22,30">
+        <Image
+            HorizontalOptions="End"
+            Source="logout.png"
+            VerticalOptions="Start"
+            WidthRequest="28">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ClickedLogoutCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </Grid>
+</base:BasePage>
