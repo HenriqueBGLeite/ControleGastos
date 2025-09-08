@@ -17,7 +17,7 @@ namespace ControleGastos.Core.Application.UseCases.Auth
             _userRepository = userRepository;
         }
 
-        public async Task<bool> OnValidateUserToDatabase(string email, CancellationToken ct = default)
+        public async Task<Users> OnValidateUserToDatabase(string email, CancellationToken ct = default)
         {
             var normalize = email.ToLowerInvariant() ?? string.Empty;
 
@@ -26,7 +26,7 @@ namespace ControleGastos.Core.Application.UseCases.Auth
             if (userExists == null)
                 throw new Exception($"Nenhum usuário cadastrado para o e-mail: {email}.");
 
-            return true;
+            return userExists;
         }
     }
 }

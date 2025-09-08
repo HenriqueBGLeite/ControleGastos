@@ -5,6 +5,8 @@ using ControleGastosApp.Pages;
 using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Alert.Providers;
 using ControleGastosApp.Services.Navigate;
+using ControleGastosApp.Services.Session;
+using ControleGastosApp.Services.Storage;
 using ControleGastosApp.ViewModels;
 using ControleGastosApp.ViewModels.FormModels;
 using Database.Config;
@@ -59,6 +61,8 @@ namespace ControleGastosApp
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddSingleton<INavigateService, NavigateService>();
+            services.AddSingleton<ISessionService, SessionService>();
+            services.AddSingleton<IPreferencesStorage, PreferencesStorage>();
             services.AddSingleton<ICurrentPageProvider, CurrentPageProvider>();
             services.AddSingleton<IShellAlertService, ShellAlertService>();
 

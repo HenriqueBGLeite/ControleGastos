@@ -1,18 +1,21 @@
-﻿using Microsoft.Maui.Platform;
+﻿using ControleGastosApp.Services.Session;
+using Microsoft.Maui.Platform;
 
 namespace ControleGastosApp
 {
     public partial class App : Application
     {
         public static IServiceProvider ServiceProvider { get; private set; } = default!;
+        private ISessionService _sessionService;
 
-        public App(IServiceProvider serviceProvider)
+        public App(IServiceProvider serviceProvider, ISessionService sessionService)
         {
             InitializeComponent();
             CustomHandler();
 
             UserAppTheme = AppTheme.Light;
             ServiceProvider = serviceProvider;
+            _sessionService = sessionService;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
@@ -33,6 +36,11 @@ namespace ControleGastosApp
 
         private Task<string> DetermineInitialRouteAsync()
         {
+            var userLogged = _sessionService.GetUserLogged();
+
+            if (userLogged != null)
+                return Task.FromResult("//main");
+
             return Task.FromResult("//auth");
         }
 

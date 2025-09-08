@@ -1,8 +1,10 @@
 ﻿
+using ControleGastos.Core.Domain.Entities;
+
 namespace ControleGastos.Core.Application.UseCases.Auth
 {
     public interface IAuthUseCase
     {
-        Task<bool> OnValidateUserToDatabase(string email, CancellationToken ct = default);
+        Task<Users> OnValidateUserToDatabase(string email, CancellationToken ct = default);
     }
 }

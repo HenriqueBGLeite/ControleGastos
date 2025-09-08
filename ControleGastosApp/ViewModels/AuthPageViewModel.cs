@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using ControleGastos.Core.Application.UseCases.Auth;
 using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Navigate;
+using ControleGastosApp.Services.Session;
 using ControleGastosApp.ViewModels.Base;
 using ControleGastosApp.ViewModels.FormModels;
 using System;
@@ -18,6 +19,7 @@ namespace ControleGastosApp.ViewModels
     {
         private INavigateService _navigationService;
         private IShellAlertService _shellAlertService;
+        private ISessionService _sessionService;
         private IAuthUseCase _authUseCase;
 
         [ObservableProperty]
@@ -26,12 +28,14 @@ namespace ControleGastosApp.ViewModels
         public AuthPageViewModel(AuthFormModel authForm,
             INavigateService navigationService,
             IAuthUseCase authUseCase,
-            IShellAlertService shellAlertService)
+            IShellAlertService shellAlertService,
+            ISessionService sessionService)
         {
             _authForm = authForm;
             _navigationService = navigationService;
             _authUseCase = authUseCase;
             _shellAlertService = shellAlertService;
+            _sessionService = sessionService;
         }
 
         [RelayCommand]
@@ -44,8 +48,13 @@ namespace ControleGastosApp.ViewModels
                 if (!isValid)
                     return;
 
-                if (AuthForm.Email != null && await _authUseCase.OnValidateUserToDatabase(AuthForm.Email))
+                if (AuthForm.Email != null)
+                {
+                    var userDb = await _authUseCase.OnValidateUserToDatabase(AuthForm.Email);
+
+                    _sessionService.SetUserLogged(userDb);
                     await _navigationService.NavigateToRootAsync("main");
+                }
             }
             catch (Exception ex)
             {
