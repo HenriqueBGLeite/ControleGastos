@@ -20,6 +20,7 @@
     <Color x:Key="ErrorBg">#FCF3F2</Color>
     <Color x:Key="HintLabel">#5E6366</Color>
     <Color x:Key="Placeholder">#ABAFB1</Color>
+    <Color x:Key="BackgroundTransaparent">#99EFF1F9</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

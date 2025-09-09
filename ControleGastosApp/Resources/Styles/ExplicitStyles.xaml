@@ -11,6 +11,14 @@
         <Setter Property="Padding" Value="8" />
     </Style>
 
+    <Style x:Key="BorderRoundStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource BackgroundTransaparent}" />
+        <Setter Property="Stroke" Value="Transparent" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 30" />
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
     <Style x:Key="LabelFloatingBorder" TargetType="Label">
         <Setter Property="FontFamily" Value="OpenSansMedium" />
         <Setter Property="FontSize" Value="12" />

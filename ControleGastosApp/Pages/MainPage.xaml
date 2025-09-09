@@ -7,24 +7,399 @@
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
     Title=""
     x:DataType="vm:MainPageViewModel">
-    <ScrollView>
-        <Grid Padding="22,30">
-            <Image
-                HorizontalOptions="End"
-                Source="logout.png"
-                VerticalOptions="Start"
-                WidthRequest="28">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ClickedLogoutCommand}" />
-                </Image.GestureRecognizers>
-            </Image>
+    <Grid RowDefinitions="Auto, *">
+        <Border
+            Background="{StaticResource White}"
+            StrokeShape="RoundRectangle 0,0,34,34"
+            StrokeThickness="0">
+            <Grid
+                Padding="22,30,22,15"
+                ColumnDefinitions="1*, 2*, 1*"
+                RowDefinitions="Auto, *, Auto">
+                <Border
+                    HorizontalOptions="Start"
+                    Style="{StaticResource BorderRoundStyle}"
+                    VerticalOptions="Start">
+                    <Image Source="fi_user_black.png" WidthRequest="22" />
+                </Border>
 
-            <VerticalStackLayout VerticalOptions="Center">
+                <Picker Grid.Column="1" />
+
+                <Border
+                    Grid.Column="2"
+                    HorizontalOptions="End"
+                    Style="{StaticResource BorderRoundStyle}"
+                    VerticalOptions="Start">
+                    <HorizontalStackLayout Spacing="4">
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClickedLogoutCommand}" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                        <Image Source="logout.png" WidthRequest="22" />
+                        <Label
+                            FontFamily="OpenSansSemibold"
+                            Text="Sair"
+                            TextColor="{StaticResource HintLabel}"
+                            VerticalTextAlignment="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                    <Label HorizontalTextAlignment="Center" Text="Saldo atual em contas" />
+                    <Label
+                        FontFamily="OpenSansSemibold"
+                        FontSize="28"
+                        HorizontalTextAlignment="Center"
+                        Text="R$ 0,00"
+                        TextColor="{StaticResource NewBlack}" />
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="eye.png"
+                        WidthRequest="22" />
+                </VerticalStackLayout>
+
+                <Grid
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3"
+                    ColumnDefinitions="Auto,1*,2*,Auto,1*"
+                    ColumnSpacing="5"
+                    RowDefinitions="Auto, Auto">
+
+                    <Border
+                        Grid.RowSpan="2"
+                        Background="{StaticResource Primary}"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource BorderRoundStyle}"
+                        VerticalOptions="Start">
+
+                        <Image Source="fi_arrow_up.png" />
+                    </Border>
+                    <Label
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="Receitas"
+                        TextColor="{StaticResource HintLabel}"
+                        VerticalTextAlignment="End" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="R$ 0,00"
+                        TextColor="{StaticResource Primary}"
+                        VerticalTextAlignment="Start" />
+
+                    <Border
+                        Grid.RowSpan="2"
+                        Grid.Column="3"
+                        Background="{StaticResource ActionRed}"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource BorderRoundStyle}"
+                        VerticalOptions="Start">
+
+                        <Image Source="fi_arrow_down.png" />
+                    </Border>
+                    <Label
+                        Grid.Column="4"
+                        FontSize="12"
+                        Text="Despesas"
+                        TextColor="{StaticResource HintLabel}"
+                        VerticalTextAlignment="End" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Text="R$ 0,00"
+                        TextColor="{StaticResource ActionRed}"
+                        VerticalTextAlignment="Start" />
+
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" RowDefinitions="*, Auto">
+            <ScrollView>
+                <VerticalStackLayout Padding="0,5" VerticalOptions="Center">
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Aqui ficarão os cards de analise"
+                        VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Grid
+                Grid.Row="1"
+                Padding="3,8,3,0"
+                ColumnDefinitions="1*,1*,1*,1*,1*"
+                RowDefinitions="Auto,Auto">
+                <Image Source="setting.png" WidthRequest="22" />
                 <Label
-                    HorizontalOptions="Center"
-                    Text="Welcome to .NET MAUI!"
-                    VerticalOptions="Center" />
-            </VerticalStackLayout>
+                    Grid.Row="1"
+                    FontSize="10"
+                    HorizontalTextAlignment="Center"
+                    Text="Cartões" />
+                <Image
+                    Grid.Column="1"
+                    Source="setting.png"
+                    WidthRequest="22" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="10"
+                    HorizontalTextAlignment="Center"
+                    Text="Categorias" />
+
+                <Image
+                    Grid.Column="2"
+                    Source="setting.png"
+                    WidthRequest="22" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontSize="10"
+                    HorizontalTextAlignment="Center"
+                    Text="Transações" />
+                <Image
+                    Grid.Column="3"
+                    Source="setting.png"
+                    WidthRequest="22" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    FontSize="10"
+                    HorizontalTextAlignment="Center"
+                    Text="Planejamento" />
+                <Image
+                    Grid.Column="4"
+                    Source="setting.png"
+                    WidthRequest="22" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    FontSize="10"
+                    HorizontalTextAlignment="Center"
+                    Text="Configurações" />
+            </Grid>
         </Grid>
-    </ScrollView>
+    </Grid>
 </base:BasePage>

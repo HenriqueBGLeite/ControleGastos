@@ -9,5 +9,7 @@ public partial class MainPage : BasePage
 	{
 		InitializeComponent();
 		BindingContext = model;
-	}
+    }
+
+    protected override Color DefaultStatusBarColor => (Color)Application.Current!.Resources["White"];
 }
