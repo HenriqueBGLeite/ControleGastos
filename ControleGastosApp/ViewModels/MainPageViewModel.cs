@@ -7,6 +7,7 @@ using ControleGastosApp.Services.Session;
 using ControleGastosApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace ControleGastosApp.ViewModels
         [ObservableProperty]
         private TypeOperations _settingsOperation = TypeOperations.settings;
         #endregion
+
+        public List<string> Months { get; } = DateTimeFormatInfo.CurrentInfo!.MonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
+
+        [ObservableProperty]
+        private int _selectedMonth = DateTimeOffset.Now.Month;
 
         public MainPageViewModel(INavigateService navigationService,
             IShellAlertService shellAlertService,
@@ -63,6 +69,8 @@ namespace ControleGastosApp.ViewModels
                 TypeOperations.settings => "settings",
                 _ => throw new NotImplementedException(),
             };
+
+            await _shellAlertService.ShowSnackBarAsync($"Você vai navegar para: {route}");
 
             //await _navigationService.NavigateToAsync(route);
         }
