@@ -71,7 +71,7 @@
                         Style="{StaticResource BorderRoundStyle}"
                         VerticalOptions="Start">
 
-                        <Image Source="fi_arrow_up.png" />
+                        <Image Source="fi_arrow_up.png" WidthRequest="22" />
                     </Border>
                     <Label
                         Grid.Column="1"
@@ -94,7 +94,7 @@
                         Style="{StaticResource BorderRoundStyle}"
                         VerticalOptions="Start">
 
-                        <Image Source="fi_arrow_down.png" />
+                        <Image Source="fi_arrow_down.png" WidthRequest="22" />
                     </Border>
                     <Label
                         Grid.Column="4"
@@ -120,285 +120,63 @@
                         HorizontalOptions="Center"
                         Text="Aqui ficarão os cards de analise"
                         VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Aqui ficarão os cards de analise"
-                        VerticalOptions="Center" />
                 </VerticalStackLayout>
             </ScrollView>
 
             <Grid
                 Grid.Row="1"
                 Padding="3,8,3,0"
-                ColumnDefinitions="1*,1*,1*,1*,1*"
-                RowDefinitions="Auto,Auto">
-                <Image Source="setting.png" WidthRequest="22" />
-                <Label
-                    Grid.Row="1"
-                    FontSize="10"
-                    HorizontalTextAlignment="Center"
-                    Text="Cartões" />
-                <Image
-                    Grid.Column="1"
-                    Source="setting.png"
-                    WidthRequest="22" />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    FontSize="10"
-                    HorizontalTextAlignment="Center"
-                    Text="Categorias" />
-
-                <Image
-                    Grid.Column="2"
-                    Source="setting.png"
-                    WidthRequest="22" />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    FontSize="10"
-                    HorizontalTextAlignment="Center"
-                    Text="Transações" />
-                <Image
-                    Grid.Column="3"
-                    Source="setting.png"
-                    WidthRequest="22" />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="3"
-                    FontSize="10"
-                    HorizontalTextAlignment="Center"
-                    Text="Planejamento" />
-                <Image
-                    Grid.Column="4"
-                    Source="setting.png"
-                    WidthRequest="22" />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="4"
-                    FontSize="10"
-                    HorizontalTextAlignment="Center"
-                    Text="Configurações" />
+                ColumnDefinitions="1*,1*,1*,1*,1*">
+                <VerticalStackLayout VerticalOptions="Center">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Image Source="card.png" WidthRequest="22" />
+                    <Label
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"
+                        Text="Cartões" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Image Source="categories.png" WidthRequest="22" />
+                    <Label
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"
+                        Text="Categorias" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" VerticalOptions="Center">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Image Source="transaction.png" WidthRequest="22" />
+                    <Label
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"
+                        Text="Transações" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="3" VerticalOptions="Center">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Image Source="plan.png" WidthRequest="22" />
+                    <Label
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"
+                        Text="Planejamento" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="4" VerticalOptions="Center">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Image Source="setting.png" WidthRequest="22" />
+                    <Label
+                        FontSize="10"
+                        HorizontalTextAlignment="Center"
+                        Text="Configurações" />
+                </VerticalStackLayout>
             </Grid>
         </Grid>
     </Grid>
