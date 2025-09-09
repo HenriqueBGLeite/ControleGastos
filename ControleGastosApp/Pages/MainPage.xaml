@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
+    xmlns:enums="clr-namespace:ControleGastos.Core.Domain.Enums;assembly=ControleGastos.Core"
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
     Title=""
     x:DataType="vm:MainPageViewModel">
@@ -129,53 +130,53 @@
                 ColumnDefinitions="1*,1*,1*,1*,1*">
                 <VerticalStackLayout VerticalOptions="Center">
                     <VerticalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding NavigateToPageCommand}" CommandParameter="{x:Static enums:TypeOperations.cards}" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Image Source="card.png" WidthRequest="22" />
                     <Label
                         FontSize="10"
                         HorizontalTextAlignment="Center"
-                        Text="Cartões" />
+                        Text="{Binding CardsOperation, Converter={StaticResource EnumDisplayNameConverter}}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
                     <VerticalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding NavigateToPageCommand}" CommandParameter="{x:Static enums:TypeOperations.categories}" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Image Source="categories.png" WidthRequest="22" />
                     <Label
                         FontSize="10"
                         HorizontalTextAlignment="Center"
-                        Text="Categorias" />
+                        Text="{Binding CategoriesOperation, Converter={StaticResource EnumDisplayNameConverter}}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="2" VerticalOptions="Center">
                     <VerticalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding NavigateToPageCommand}" CommandParameter="{x:Static enums:TypeOperations.transactions}" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Image Source="transaction.png" WidthRequest="22" />
                     <Label
                         FontSize="10"
                         HorizontalTextAlignment="Center"
-                        Text="Transações" />
+                        Text="{Binding TransactionsOperation, Converter={StaticResource EnumDisplayNameConverter}}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="3" VerticalOptions="Center">
                     <VerticalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding NavigateToPageCommand}" CommandParameter="{x:Static enums:TypeOperations.planning}" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Image Source="plan.png" WidthRequest="22" />
                     <Label
                         FontSize="10"
                         HorizontalTextAlignment="Center"
-                        Text="Planejamento" />
+                        Text="{Binding PlanningOperation, Converter={StaticResource EnumDisplayNameConverter}}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="4" VerticalOptions="Center">
                     <VerticalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding NavigateToPageCommand}" CommandParameter="{x:Static enums:TypeOperations.settings}" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Image Source="setting.png" WidthRequest="22" />
                     <Label
                         FontSize="10"
                         HorizontalTextAlignment="Center"
-                        Text="Configurações" />
+                        Text="{Binding SettingsOperation, Converter={StaticResource EnumDisplayNameConverter}}" />
                 </VerticalStackLayout>
             </Grid>
         </Grid>

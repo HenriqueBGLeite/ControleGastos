@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using ControleGastos.Core.Domain.Enums;
 using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Navigate;
 using ControleGastosApp.Services.Session;
@@ -17,6 +19,19 @@ namespace ControleGastosApp.ViewModels
         private IShellAlertService _shellAlertService;
         private ISessionService _sessionService;
 
+        #region Operações
+        [ObservableProperty]
+        private TypeOperations _cardsOperation = TypeOperations.cards;
+        [ObservableProperty]
+        private TypeOperations _categoriesOperation = TypeOperations.categories;
+        [ObservableProperty]
+        private TypeOperations _transactionsOperation = TypeOperations.transactions;
+        [ObservableProperty]
+        private TypeOperations _planningOperation = TypeOperations.planning;
+        [ObservableProperty]
+        private TypeOperations _settingsOperation = TypeOperations.settings;
+        #endregion
+
         public MainPageViewModel(INavigateService navigationService,
             IShellAlertService shellAlertService,
             ISessionService sessionService)
@@ -34,6 +49,22 @@ namespace ControleGastosApp.ViewModels
 
             _sessionService.Logout();
             await _navigationService.NavigateToRootAsync("auth");
+        }
+
+        [RelayCommand]
+        private async Task OnNavigateToPage(TypeOperations type)
+        {
+            string route = (type) switch
+            {
+                TypeOperations.cards => "cards",
+                TypeOperations.categories => "categories",
+                TypeOperations.transactions => "transactions",
+                TypeOperations.planning => "planning",
+                TypeOperations.settings => "settings",
+                _ => throw new NotImplementedException(),
+            };
+
+            //await _navigationService.NavigateToAsync(route);
         }
     }
 }
