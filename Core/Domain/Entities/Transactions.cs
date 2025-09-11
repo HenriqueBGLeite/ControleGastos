@@ -22,9 +22,12 @@ namespace ControleGastos.Core.Domain.Entities
         public DateTimeOffset UpdatedAt { get; set; }
 
         public Guid UserId { get; set; }
-        public Guid CategoryId { get; set; }
-
         public Users User { get; set; } = null!;
+
+        public Guid CategoryId { get; set; }
         public Categories Category { get; set; } = null!;
+
+        public Guid CreditCard { get; set; }
+        public CreditCards Card { get; set; } = null!;
     }
 }

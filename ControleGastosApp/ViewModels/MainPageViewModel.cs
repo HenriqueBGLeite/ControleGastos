@@ -1,10 +1,17 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
+using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ControleGastos.Core.Domain.Enums;
+using ControleGastosApp.Pages.Controls.Popups;
 using ControleGastosApp.Services.Alert;
+using ControleGastosApp.Services.Alert.Providers;
 using ControleGastosApp.Services.Navigate;
 using ControleGastosApp.Services.Session;
 using ControleGastosApp.ViewModels.Base;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Maui.Controls.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,6 +26,10 @@ namespace ControleGastosApp.ViewModels
         private INavigateService _navigationService;
         private IShellAlertService _shellAlertService;
         private ISessionService _sessionService;
+
+        private readonly IPopupService _popupService;
+        private readonly ICurrentPageProvider _currentPageProvider;
+
 
         #region Operações
         [ObservableProperty]
@@ -40,17 +51,21 @@ namespace ControleGastosApp.ViewModels
 
         public MainPageViewModel(INavigateService navigationService,
             IShellAlertService shellAlertService,
-            ISessionService sessionService)
+            ISessionService sessionService,
+            ICurrentPageProvider currentPageProvider,
+            IPopupService popupService)
         {
             _navigationService = navigationService;
             _shellAlertService = shellAlertService;
             _sessionService = sessionService;
+            _currentPageProvider = currentPageProvider;
+            _popupService = popupService;
         }
 
         [RelayCommand]
         private async Task OnClickedLogout()
         {
-            if (!await _shellAlertService.ShowConfirmationAsync("Sair do sistema", "Deseja realmente sair?"))
+            if (!await _shellAlertService.ShowConfirmationAsync("Sair do sistema", "Deseja realmente sair?", "logout.png"))
                 return;
 
             _sessionService.Logout();
@@ -70,9 +85,7 @@ namespace ControleGastosApp.ViewModels
                 _ => throw new NotImplementedException(),
             };
 
-            await _shellAlertService.ShowSnackBarAsync($"Você vai navegar para: {route}");
-
-            //await _navigationService.NavigateToAsync(route);
+            //await _navigationService.NavigateToRootAsync(route);
         }
     }
 }

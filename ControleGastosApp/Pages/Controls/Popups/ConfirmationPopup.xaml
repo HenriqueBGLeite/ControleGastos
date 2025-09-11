@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup
+    x:Class="ControleGastosApp.Pages.Controls.Popups.ConfirmationPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    x:Name="Root"
+    x:TypeArguments="system:Boolean">
+    <Border x:Name="Card" Style="{StaticResource BorderPopup}">
+        <Grid RowDefinitions="64, *">
+            <Border Style="{StaticResource BorderButtonClosedPopup}">
+                <Image Source="fi_x.png" WidthRequest="20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickedClose" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+
+            <VerticalStackLayout
+                Grid.Row="1"
+                Spacing="20"
+                VerticalOptions="End">
+                <Label
+                    FontFamily="OpenSansMedium"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Message, Source={x:Reference Root}}"
+                    TextColor="{StaticResource HintLabel}" />
+                <Image Source="{Binding Icone, Source={x:Reference Root}}" WidthRequest="52" />
+                <HorizontalStackLayout Spacing="24">
+                    <Button
+                        Clicked="OnCancel_Clicked"
+                        MinimumWidthRequest="121"
+                        Style="{StaticResource ButtonBackgroundWhite}"
+                        Text="{Binding Cancel, Source={x:Reference Root}}" />
+                    <Button
+                        Clicked="OnAccept_Clicked"
+                        MinimumWidthRequest="121"
+                        Text="{Binding Accept, Source={x:Reference Root}}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+</mct:Popup>

@@ -1,7 +1,10 @@
-﻿using ControleGastos.Core.Application.UseCases.Auth;
+﻿using CommunityToolkit.Maui;
+using ControleGastos.Core.Application.UseCases.Auth;
 using ControleGastos.Core.Application.UseCases.RegisterUser;
 using ControleGastos.Core.Domain.Repositories;
+using ControleGastos.Database.Repositories;
 using ControleGastosApp.Pages;
+using ControleGastosApp.Pages.Controls.Popups;
 using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Alert.Providers;
 using ControleGastosApp.Services.Navigate;
@@ -10,9 +13,6 @@ using ControleGastosApp.Services.Storage;
 using ControleGastosApp.ViewModels;
 using ControleGastosApp.ViewModels.FormModels;
 using Database.Config;
-using Database.Repositories.Categories;
-using Database.Repositories.Transactions;
-using Database.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
@@ -29,6 +29,7 @@ namespace ControleGastosApp
         {
             return services
                 .AddPages()
+                .AddPopups()
                 .AddFormModels()
                 .AddServices()
                 .AddDatabase();
@@ -47,6 +48,17 @@ namespace ControleGastosApp
             services.AddTransient<MainPage>();
             services.AddTransient<MainPageViewModel>();
 
+            services.AddTransient<CategoryListPage>();
+            services.AddTransient<CategoryListPageViewModel>();
+
+            services.AddTransient<CategoryFormPage>();
+            services.AddTransient<CategoryFormPageViewModel>();
+
+            return services;
+        }
+
+        private static IServiceCollection AddPopups(this IServiceCollection services)
+        {
             return services;
         }
 
@@ -87,6 +99,7 @@ namespace ControleGastosApp
         private static IServiceCollection AddPersistenceLayer(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICreditCardRepository, CreditCardRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
 

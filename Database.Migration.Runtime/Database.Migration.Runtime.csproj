@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\ControleGastos.Core.csproj" />
+    <ProjectReference Include="..\Database\ControleGastos.Database.csproj" />
   </ItemGroup>
 
 </Project>

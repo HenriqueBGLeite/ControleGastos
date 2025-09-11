@@ -10,8 +10,22 @@ namespace ControleGastosApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit(options =>
+                .UseMauiCommunityToolkit(static options =>
                 {
+                    options.SetPopupDefaults(new DefaultPopupSettings
+                    {
+                        BackgroundColor = Colors.Transparent,
+                        Margin = 0,
+                        Padding = 0,
+                    });
+
+                    options.SetPopupOptionsDefaults(new DefaultPopupOptionsSettings
+                    {
+                        PageOverlayColor = Color.FromArgb("#80C2C4C6"),
+                        Shadow = null,
+                        Shape = null,
+                    });
+
                     options.SetShouldEnableSnackbarOnWindows(true);
                 })
                 .ConfigureFonts(fonts =>

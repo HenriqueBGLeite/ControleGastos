@@ -1,9 +1,10 @@
-﻿using ControleGastos.Core.Domain.Repositories;
+﻿using ControleGastos.Core.Domain.Entities;
+using ControleGastos.Core.Domain.Repositories;
 using Database.Config;
 using Microsoft.EntityFrameworkCore;
 using Entities = ControleGastos.Core.Domain.Entities;
 
-namespace Database.Repositories.Categories
+namespace ControleGastos.Database.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
@@ -14,30 +15,30 @@ namespace Database.Repositories.Categories
             _db = db;
         }
 
-        public async Task Add(Entities.Categories category, CancellationToken ct = default)
+        public async Task Add(Categories category, CancellationToken ct = default)
         {
             _db.Categories.Add(category);
             await _db.SaveChangesAsync(ct);
         }
 
-        public async Task Update(Entities.Categories category, CancellationToken ct = default)
+        public async Task Update(Categories category, CancellationToken ct = default)
         {
             _db.Categories.Update(category);
             await _db.SaveChangesAsync(ct);
         }
 
-        public async Task Delete(Entities.Categories category, CancellationToken ct = default)
+        public async Task Delete(Categories category, CancellationToken ct = default)
         {
             _db.Categories.Remove(category);
             await _db.SaveChangesAsync(ct);
         }
 
-        public async Task<IList<Entities.Categories>> GetAll(Guid userId, CancellationToken ct = default)
+        public async Task<IList<Categories>> GetAll(Guid userId, CancellationToken ct = default)
         {
             return await _db.Categories.Where(c => c.UserId == userId).OrderByDescending(c => c.UpdatedAt.ToString()).ToListAsync(ct);
         }
 
-        public async Task<Entities.Categories?> GetById(Guid id, CancellationToken ct = default)
+        public async Task<Categories?> GetById(Guid id, CancellationToken ct = default)
         {
             return await _db.Categories.FirstOrDefaultAsync(c => c.Id == id, ct);
         }

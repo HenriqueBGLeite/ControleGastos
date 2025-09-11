@@ -55,14 +55,14 @@ namespace ControleGastosApp.ViewModels
 
                 //TODO - Implementar snackbar para registro criado com sucesso!
 
-                await _shellAlertService.ShowSnackBarAsync("Registro salvo com sucesso");
+                await _shellAlertService.ShowSnackBar("Registro salvo com sucesso");
 
                 await _navigationService.GoBackAsync();
             }
             catch (Exception ex)
             {
                 //TODO - Implementar snackbar para erro ao criado
-                await _shellAlertService.ShowSnackBarAsync($"Erro ao salvar registro. \n\n {ex.Message}");
+                await _shellAlertService.ShowSnackBar($"Erro ao salvar registro. \n\n {ex.Message}");
             }
         }
 

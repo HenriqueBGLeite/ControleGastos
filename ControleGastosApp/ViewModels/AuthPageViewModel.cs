@@ -59,7 +59,7 @@ namespace ControleGastosApp.ViewModels
             catch (Exception ex)
             {
                 //TODO - Implementar snackbar para erro ao criado
-                await _shellAlertService.ShowSnackBarAsync($"Erro na autentição. \n\n {ex.Message}");
+                await _shellAlertService.ShowSnackBar($"Erro na autentição. \n\n {ex.Message}");
             }
         }
 

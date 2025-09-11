@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Extensions;
+using ControleGastosApp.Pages.Controls.Popups;
 using ControleGastosApp.Services.Alert.Providers;
 using System;
 using System.Collections.Generic;
@@ -28,17 +30,30 @@ namespace ControleGastosApp.Services.Alert
             return Task.CompletedTask;
         }
 
-        public async Task<bool> ShowConfirmationAsync(string title, string message, string accept = "Sim", string cancel = "Cancelar")
+        public async Task<bool> ShowConfirmationAsync(string title, string message, string icon, string accept = "Sim", string cancel = "Cancelar")
         {
             var page = _pageProvider.GetCurrentPage();
 
             if (page != null)
-                return await page.DisplayAlert(title, message, accept, cancel);
+            {
+                var confirmationPopup = new ConfirmationPopup
+                {
+                    Message = message,
+                    Icone = icon,
+                    Accept = accept,
+                    Cancel = cancel,
+                    CanBeDismissedByTappingOutsideOfPopup = false
+                };
+
+                var confirmation = await page.ShowPopupAsync<bool>(confirmationPopup);
+
+                return await Task.FromResult(confirmation.Result);
+            }
 
             return await Task.FromResult(false);
         }
 
-        public Task ShowSnackBarAsync(string message)
+        public Task ShowSnackBar(string message)
         {
             var page = _pageProvider.GetCurrentPage();
 
