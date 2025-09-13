@@ -66,6 +66,7 @@ namespace ControleGastosApp
         {
             services.AddTransient<AuthFormModel>();
             services.AddTransient<RegisterUserFormModel>();
+            services.AddTransient<RegisterCategoryFormModel>();
 
             return services;
         }

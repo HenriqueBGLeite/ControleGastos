@@ -7,6 +7,8 @@ namespace ControleGastosApp
     {
         public static MauiApp CreateMauiApp()
         {
+            //TODO - Estudar sobre BottomSheet
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

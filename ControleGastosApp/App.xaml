@@ -16,6 +16,7 @@
             <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
             <converters:EnumDisplayNameConverter x:Key="EnumDisplayNameConverter" />
             <converters:IntToMonthConverter x:Key="IntToMonthConverter" />
+            <converters:OperationTypeConverter x:Key="OperationTypeConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

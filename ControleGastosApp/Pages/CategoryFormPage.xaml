@@ -4,13 +4,61 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
+    xmlns:controlFB="clr-namespace:ControleGastosApp.Pages.Controls.FloatingBorder"
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
     Title=""
     x:DataType="vm:CategoryFormPageViewModel">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <Grid Padding="22,30" RowDefinitions="Auto, *">
+            <Grid ColumnDefinitions="Auto, *">
+                <Image
+                    HorizontalOptions="Start"
+                    Source="fi_arrow_left.png"
+                    VerticalOptions="Start"
+                    WidthRequest="26">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapToBackCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource TitlePage}"
+                    Text="Cadastro de categoria" />
+            </Grid>
+
+            <VerticalStackLayout
+                Grid.RowSpan="2"
+                Padding="0,54"
+                Spacing="30"
+                VerticalOptions="Center">
+                <controlFB:FloatingBorder
+                    ErrorMessage="{Binding CategoryForm.NameErrorMessage}"
+                    HasError="{Binding CategoryForm.NameErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+                    Hint="*Nome">
+                    <Entry Placeholder="Digite o nome" Text="{Binding CategoryForm.Name}" />
+                </controlFB:FloatingBorder>
+                <controlFB:FloatingBorder Hint="*Icone">
+                    <Picker Title="Selecione um icone" />
+                </controlFB:FloatingBorder>
+                <controlFB:FloatingBorder Hint="*Cor">
+                    <Picker Title="Selecione uma cor" />
+                </controlFB:FloatingBorder>
+                <controlFB:FloatingBorder
+                    ErrorMessage="{Binding CategoryForm.TypeErrorMessage}"
+                    HasError="{Binding CategoryForm.TypeErrorMessage, Converter={StaticResource StringToBoolConverter}}"
+                    Hint="*Tipo">
+                    <Picker
+                        Title="Selecione o tipo da categoria"
+                        ItemsSource="{Binding SelectedOperation}"
+                        SelectedItem="{Binding CategoryForm.Type}" />
+                </controlFB:FloatingBorder>
+            </VerticalStackLayout>
+            <Button
+                Grid.RowSpan="2"
+                Command="{Binding SavedCategoryOnDatabaseCommand}"
+                Text="Salvar"
+                VerticalOptions="End" />
+        </Grid>
+    </ScrollView>
 </base:BasePage>

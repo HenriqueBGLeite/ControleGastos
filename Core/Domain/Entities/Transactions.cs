@@ -13,7 +13,7 @@ namespace ControleGastos.Core.Domain.Entities
         public string? Description { get; set; }
         public decimal Amount { get; set; }
         public DateTimeOffset Date {  get; set; }
-        public TransactionType TransactionType { get; set; }
+        public OperationType TransactionType { get; set; }
         public bool Repeat { get; set; }
         public int? RepeatCount { get; set; }
         public RecurrencePeriod? RepeatPeriod { get; set; }

@@ -23,7 +23,7 @@ namespace ControleGastosApp.ViewModels
         private IAuthUseCase _authUseCase;
 
         [ObservableProperty]
-        private AuthFormModel _authForm;
+        public partial AuthFormModel AuthForm { get; set; }
 
         public AuthPageViewModel(AuthFormModel authForm,
             INavigateService navigationService,
@@ -31,7 +31,7 @@ namespace ControleGastosApp.ViewModels
             IShellAlertService shellAlertService,
             ISessionService sessionService)
         {
-            _authForm = authForm;
+            AuthForm = authForm;
             _navigationService = navigationService;
             _authUseCase = authUseCase;
             _shellAlertService = shellAlertService;

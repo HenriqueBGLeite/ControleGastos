@@ -11,7 +11,7 @@ namespace ControleGastosApp.Pages.Converters
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value == null) 
+            if (value == null || (int)value == 0) 
                 return null;
 
             return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName((int)value);

@@ -17,6 +17,7 @@
     <Color x:Key="NewBlack">#4A5050</Color>
     <Color x:Key="AdjacentGreen">#328373</Color>
     <Color x:Key="DarkGreen">#084337</Color>
+    <Color x:Key="LightGreen">#E7ECB7</Color>
     <Color x:Key="ActionRed">#9D2835</Color>
     <Color x:Key="ErrorBg">#FCF3F2</Color>
     <Color x:Key="HintLabel">#5E6366</Color>

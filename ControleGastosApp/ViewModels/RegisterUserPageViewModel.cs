@@ -22,14 +22,14 @@ namespace ControleGastosApp.ViewModels
         private IRegisterUserUseCase _registerUserUseCase;
 
         [ObservableProperty]
-        private RegisterUserFormModel _userForm;
+        public partial RegisterUserFormModel UserForm { get; set; }
 
         public RegisterUserPageViewModel(RegisterUserFormModel userForm,
             INavigateService navigationService,
             IRegisterUserUseCase registerUserUseCase,
             IShellAlertService shellAlertService)
         {
-            _userForm = userForm;
+            UserForm = userForm;
             _navigationService = navigationService;
             _registerUserUseCase = registerUserUseCase;
             _shellAlertService = shellAlertService;

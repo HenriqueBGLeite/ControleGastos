@@ -69,7 +69,12 @@ public partial class ConfirmationPopup : Popup<bool>
         Closed += (_, __) => ApplyBars();
     }
 
-    private static void ApplyBars() => StatusBar.SetColor(StatusBarColor);
+    private static void ApplyBars()
+    {
+#if IOS || ANDROID
+        StatusBar.SetColor(StatusBarColor);
+#endif
+    }
 
     private async void OnCancel_Clicked(object sender, EventArgs e)
     {

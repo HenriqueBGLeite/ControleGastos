@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleGastos.Core.Domain.Enums
 {
-    public enum TransactionType
+    public enum OperationType
     {
         [Display(Name = "Receita")]
         Income = 1,

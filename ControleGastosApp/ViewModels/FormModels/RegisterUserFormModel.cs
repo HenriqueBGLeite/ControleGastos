@@ -13,18 +13,18 @@ namespace ControleGastosApp.ViewModels.FormModels
     {
         [ObservableProperty]
         [Required(ErrorMessage = "O nome é obrigatório.")]
-        private string? _userName;
+        public partial string? UserName { get; set; }
 
         [ObservableProperty]
-        private string? _userNameErrorMessage;
+        public partial string? UserNameErrorMessage { get; set; }
 
         [ObservableProperty]
         [Required(ErrorMessage = "O e-mail é obrigatório.")]
         [EmailAddress(ErrorMessage = "O e-mail informado esta inválido.")]
-        private string? _email;
+        public partial string? Email { get; set; }
 
         [ObservableProperty]
-        private string? _emailErrorMessage;
+        public partial string? EmailErrorMessage { get; set; }
 
         public RegisterUserFormModel()
         {

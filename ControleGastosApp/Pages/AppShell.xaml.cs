@@ -9,6 +9,7 @@ namespace ControleGastosApp
             InitializeComponent();
 
             Routing.RegisterRoute("auth/registerUser", typeof(RegisterUserPage));
+            Routing.RegisterRoute("main/categories", typeof(CategoryListPage));
             Routing.RegisterRoute("categories/form", typeof(CategoryFormPage));
         }
 

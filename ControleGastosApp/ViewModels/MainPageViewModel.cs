@@ -27,39 +27,31 @@ namespace ControleGastosApp.ViewModels
         private IShellAlertService _shellAlertService;
         private ISessionService _sessionService;
 
-        private readonly IPopupService _popupService;
-        private readonly ICurrentPageProvider _currentPageProvider;
-
-
         #region Operações
         [ObservableProperty]
-        private TypeOperations _cardsOperation = TypeOperations.cards;
+        public partial TypeOperations CardsOperation { get; set; } = TypeOperations.cards;
         [ObservableProperty]
-        private TypeOperations _categoriesOperation = TypeOperations.categories;
+        public partial TypeOperations CategoriesOperation { get; set; } = TypeOperations.categories;
         [ObservableProperty]
-        private TypeOperations _transactionsOperation = TypeOperations.transactions;
+        public partial TypeOperations TransactionsOperation { get; set; } = TypeOperations.transactions;
         [ObservableProperty]
-        private TypeOperations _planningOperation = TypeOperations.planning;
+        public partial TypeOperations PlanningOperation { get; set; } = TypeOperations.planning;
         [ObservableProperty]
-        private TypeOperations _settingsOperation = TypeOperations.settings;
+        public partial TypeOperations SettingsOperation { get; set; } = TypeOperations.settings;
         #endregion
 
         public List<string> Months { get; } = DateTimeFormatInfo.CurrentInfo!.MonthNames.Where(m => !string.IsNullOrEmpty(m)).ToList();
 
         [ObservableProperty]
-        private int _selectedMonth = DateTimeOffset.Now.Month;
+        public partial int SelectedMonth { get; set; } = DateTimeOffset.Now.Month;
 
         public MainPageViewModel(INavigateService navigationService,
             IShellAlertService shellAlertService,
-            ISessionService sessionService,
-            ICurrentPageProvider currentPageProvider,
-            IPopupService popupService)
+            ISessionService sessionService)
         {
             _navigationService = navigationService;
             _shellAlertService = shellAlertService;
             _sessionService = sessionService;
-            _currentPageProvider = currentPageProvider;
-            _popupService = popupService;
         }
 
         [RelayCommand]
@@ -85,7 +77,7 @@ namespace ControleGastosApp.ViewModels
                 _ => throw new NotImplementedException(),
             };
 
-            //await _navigationService.NavigateToRootAsync(route);
+            await _navigationService.NavigateToAsync(route);
         }
     }
 }
