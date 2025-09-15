@@ -15,9 +15,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ControleGastosApp.ViewModels
 {
+    [QueryProperty(nameof(CategoryParameter), "Category")]
     public partial class CategoryFormPageViewModel : BaseViewModel
     {
         private INavigateService _navigationService;
@@ -29,6 +31,9 @@ namespace ControleGastosApp.ViewModels
 
         [ObservableProperty]
         public partial RegisterCategoryFormModel CategoryForm {  get; set; }
+
+        [ObservableProperty]
+        public partial Categories? CategoryParameter { get; set; }
 
         public CategoryFormPageViewModel(INavigateService navigateService,
             RegisterCategoryFormModel categoryForm,
@@ -43,6 +48,15 @@ namespace ControleGastosApp.ViewModels
             _registerCategoryUseCase = registerCategoryUseCase;
         }
 
+        partial void OnCategoryParameterChanged(Categories? value)
+        {
+            if (value is null)
+                return;
+
+            CategoryForm.Name = value.Name;
+            CategoryForm.Type = value.OperationType;
+        }
+
         [RelayCommand]
         private async Task OnSavedCategoryOnDatabase()
         {
@@ -53,24 +67,36 @@ namespace ControleGastosApp.ViewModels
                 if (!isValid)
                     return;
 
-                var userLogged = _sessionService.GetUserLogged();
-
-                Categories category = new()
+                if (CategoryParameter is not null)
                 {
-                    Name = CategoryForm.Name,
-                    OperationType = CategoryForm.Type,
-                    Icone = "email.png",
-                    Color = "#E7ECB7",
-                    UserId = userLogged!.Id
-                };
+                    CategoryParameter.Name = CategoryForm.Name;
+                    CategoryParameter.OperationType = CategoryForm.Type;
 
-                await _registerCategoryUseCase.OnRegisterCategoryInDatabase(category);
+                    await _registerCategoryUseCase.OnEditCategoryInDatabase(CategoryParameter);
 
-                //TODO - Implementar snackbar para registro criado com sucesso!
+                    //TODO - Implementar snackbar para registro criado com sucesso!
+                    await _shellAlertService.ShowSnackBar("Registro alterado com sucesso.");
+                }
+                else
+                {
+                    var userLogged = _sessionService.GetUserLogged();
+
+                    Categories category = new()
+                    {
+                        Name = CategoryForm.Name,
+                        OperationType = CategoryForm.Type,
+                        Icone = "category_default.png",
+                        Color = "#E7ECB7",
+                        UserId = userLogged!.Id
+                    };
+
+                    await _registerCategoryUseCase.OnRegisterCategoryInDatabase(category);
+
+                    //TODO - Implementar snackbar para registro criado com sucesso!
+                    await _shellAlertService.ShowSnackBar("Registro salvo com sucesso");
+                }
 
                 WeakReferenceMessenger.Default.Send(string.Empty);
-
-                await _shellAlertService.ShowSnackBar("Registro salvo com sucesso");
 
                 await _navigationService.GoBackAsync();
             }

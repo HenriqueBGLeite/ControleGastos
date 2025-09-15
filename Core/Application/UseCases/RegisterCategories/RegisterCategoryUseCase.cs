@@ -55,6 +55,23 @@ namespace ControleGastos.Core.Application.UseCases.RegisterCategories
             await _categoryRepository.Add(category, ct);
         }
 
+        public async Task OnEditCategoryInDatabase(Categories category, CancellationToken ct = default)
+        {
+            var categoryExists = await OnExistsCategoryInDatabase(category, ct);
+
+            if (categoryExists)
+                throw new Exception($"Já existe uma outra categoria para o nome: {category.Name} do tipo selecionado.");
+
+            var transactionsLinked = await OnCategoryLinkedOnTransaction(category, ct);
+
+            if (transactionsLinked)
+                throw new Exception($"A categoria {category.Name} esta vinculada à transações. Não é possível exlcuir categoria com vinculo.");
+
+            category.UpdatedAt = DateTimeOffset.Now;
+
+            await _categoryRepository.Update(category, ct);
+        }
+
         private async Task<bool> OnExistsCategoryInDatabase(Categories category, CancellationToken ct = default)
         {
             var normalizeName = category.Name ?? string.Empty;

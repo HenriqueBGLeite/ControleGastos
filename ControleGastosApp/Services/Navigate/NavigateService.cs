@@ -18,6 +18,16 @@ namespace ControleGastosApp.Services.Navigate
             await Shell.Current.GoToAsync(route);
         }
 
+        public async Task NavigateWithParametersToAsync(string route, Dictionary<string, object> parameters)
+        {
+            await Shell.Current.GoToAsync(route, parameters);
+        }
+
+        public async Task NavigateWithParametersToRootAsync(string route, Dictionary<string, object> parameters)
+        {
+            await Shell.Current.GoToAsync(route, parameters);
+        }
+
         public async Task GoBackAsync()
         {
             await Shell.Current.GoToAsync("..");

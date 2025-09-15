@@ -77,7 +77,12 @@ namespace ControleGastosApp.ViewModels
         [RelayCommand]
         private async Task OnTapEditFormCategory(Categories category)
         {
-            await _shellAlertService.ShowAsync("Edição categoria", "Aqui abrirá para edição.");
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "Category", category }
+            };
+
+            await _navigationService.NavigateWithParametersToAsync("form", navigationParameter);
         }
 
         [RelayCommand]

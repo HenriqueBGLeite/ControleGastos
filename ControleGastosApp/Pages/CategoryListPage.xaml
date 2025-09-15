@@ -95,7 +95,7 @@
                         <DataTemplate>
                             <Grid
                                 Padding="22,10"
-                                ColumnDefinitions="0.9*, 3*, 1.5*, 2*"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 1*"
                                 ColumnSpacing="10"
                                 RowDefinitions="Auto, *"
                                 RowSpacing="14">
@@ -122,7 +122,7 @@
                         <DataTemplate x:DataType="entities:Categories">
                             <Grid
                                 Padding="22,10"
-                                ColumnDefinitions="0.9*, 3*, 1.5*, 2*"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 1*"
                                 ColumnSpacing="10"
                                 RowDefinitions="Auto, *"
                                 RowSpacing="14">
@@ -139,12 +139,15 @@
                                     Text="{Binding OperationType, Converter={StaticResource EnumDisplayNameConverter}}"
                                     TextColor="{StaticResource NewBlack}"
                                     VerticalTextAlignment="Center" />
-                                <HorizontalStackLayout Grid.Column="3" x:DataType="{x:Null}">
+                                <HorizontalStackLayout
+                                    Grid.Column="3"
+                                    x:DataType="{x:Null}"
+                                    Spacing="6">
                                     <ImageButton
                                         Command="{Binding Path=BindingContext.TapEditFormCategoryCommand, Source={RelativeSource AncestorType={x:Type pages:CategoryListPage}}}"
                                         CommandParameter="{Binding .}"
                                         Source="fi_edit.png"
-                                        WidthRequest="40" />
+                                        WidthRequest="22" />
                                     <ImageButton
                                         Command="{Binding Path=BindingContext.TapDeleteCategoryCommand, Source={RelativeSource AncestorType={x:Type pages:CategoryListPage}}}"
                                         CommandParameter="{Binding .}"
