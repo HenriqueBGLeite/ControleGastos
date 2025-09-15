@@ -78,7 +78,7 @@ namespace ControleGastos.Core.Application.UseCases.RegisterCategories
 
             var categoryExists = await _categoryRepository.GetByNameAndType(normalizeName, category.OperationType, ct);
 
-            return categoryExists != null;
+            return categoryExists != null && categoryExists.Id != category.Id;
         }
 
         private async Task<bool> OnCategoryLinkedOnTransaction(Categories category, CancellationToken ct = default)

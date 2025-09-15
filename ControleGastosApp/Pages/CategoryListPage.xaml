@@ -95,7 +95,7 @@
                         <DataTemplate>
                             <Grid
                                 Padding="22,10"
-                                ColumnDefinitions="0.9*, 3*, 1.5*, 1*"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 1.5*"
                                 ColumnSpacing="10"
                                 RowDefinitions="Auto, *"
                                 RowSpacing="14">
@@ -122,7 +122,7 @@
                         <DataTemplate x:DataType="entities:Categories">
                             <Grid
                                 Padding="22,10"
-                                ColumnDefinitions="0.9*, 3*, 1.5*, 1*"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 1.5*"
                                 ColumnSpacing="10"
                                 RowDefinitions="Auto, *"
                                 RowSpacing="14">
@@ -142,7 +142,7 @@
                                 <HorizontalStackLayout
                                     Grid.Column="3"
                                     x:DataType="{x:Null}"
-                                    Spacing="6">
+                                    Spacing="10">
                                     <ImageButton
                                         Command="{Binding Path=BindingContext.TapEditFormCategoryCommand, Source={RelativeSource AncestorType={x:Type pages:CategoryListPage}}}"
                                         CommandParameter="{Binding .}"
