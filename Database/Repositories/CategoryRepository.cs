@@ -1,4 +1,5 @@
 ﻿using ControleGastos.Core.Domain.Entities;
+using ControleGastos.Core.Domain.Enums;
 using ControleGastos.Core.Domain.Repositories;
 using Database.Config;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,11 @@ namespace ControleGastos.Database.Repositories
         public async Task<Categories?> GetById(Guid id, CancellationToken ct = default)
         {
             return await _db.Categories.FirstOrDefaultAsync(c => c.Id == id, ct);
+        }
+
+        public async Task<Categories?> GetByNameAndType(string name, OperationType? type, CancellationToken ct = default)
+        {
+            return await _db.Categories.FirstOrDefaultAsync(c => c.Name == name && c.OperationType == type, ct);
         }
     }
 }

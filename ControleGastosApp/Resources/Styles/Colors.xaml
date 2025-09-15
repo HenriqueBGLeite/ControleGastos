@@ -24,6 +24,7 @@
     <Color x:Key="Placeholder">#ABAFB1</Color>
     <Color x:Key="BackgroundTransaparent">#99EFF1F9</Color>
     <Color x:Key="OverlayPopup">#E0E1E3</Color>
+    <Color x:Key="maker">#F2F6F8</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

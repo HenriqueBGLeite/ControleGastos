@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Core;
 using ControleGastos.Core.Domain.Enums;
 using ControleGastosApp.Pages.Base;
 using ControleGastosApp.ViewModels;
@@ -16,8 +17,6 @@ public partial class CategoryListPage : BasePage
 
 		model.PropertyChanged += Vm_PropertyChanged;
 	}
-
-    protected override Color AndroidNavBarColor => (Color)Application.Current!.Resources["White"];
 
     protected override void OnDisappearing()
     {

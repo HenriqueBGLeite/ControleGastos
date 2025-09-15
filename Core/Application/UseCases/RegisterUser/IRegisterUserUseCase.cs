@@ -4,6 +4,6 @@ namespace ControleGastos.Core.Application.UseCases.RegisterUser
 {
     public interface IRegisterUserUseCase
     {
-        Task OnRegisterUserToDatabase(Users user, CancellationToken ct = default);
+        Task OnRegisterUserInDatabase(Users user, CancellationToken ct = default);
     }
 }

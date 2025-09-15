@@ -28,6 +28,21 @@
         <Setter Property="Padding" Value="10" />
     </Style>
 
+    <Style x:Key="BorderRoundCircleStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource AdjacentGreen}" />
+        <Setter Property="Margin" Value="0,0,22,30" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 34" />
+        <Setter Property="WidthRequest" Value="68" />
+        <Setter Property="HeightRequest" Value="68" />
+    </Style>
+    
+    <Style x:Key="BorderRoundCircleCollectionItemStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource AdjacentGreen}" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 34" />
+        <Setter Property="WidthRequest" Value="44" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
     <Style x:Key="BorderRoundCardStyle" TargetType="Border">
         <Setter Property="Background" Value="{StaticResource BackgroundTransaparent}" />
         <Setter Property="Stroke" Value="Transparent" />

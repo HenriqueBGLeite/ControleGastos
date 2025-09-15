@@ -35,22 +35,25 @@
                 <controlFB:FloatingBorder
                     ErrorMessage="{Binding CategoryForm.NameErrorMessage}"
                     HasError="{Binding CategoryForm.NameErrorMessage, Converter={StaticResource StringToBoolConverter}}"
-                    Hint="*Nome">
+                    Hint="*Nome"
+                    Icone="fi_edit.png">
                     <Entry Placeholder="Digite o nome" Text="{Binding CategoryForm.Name}" />
                 </controlFB:FloatingBorder>
-                <controlFB:FloatingBorder Hint="*Icone">
+                <controlFB:FloatingBorder Hint="*Icone" Icone="fi_edit.png">
                     <Picker Title="Selecione um icone" />
                 </controlFB:FloatingBorder>
-                <controlFB:FloatingBorder Hint="*Cor">
+                <controlFB:FloatingBorder Hint="*Cor" Icone="fi_edit.png">
                     <Picker Title="Selecione uma cor" />
                 </controlFB:FloatingBorder>
                 <controlFB:FloatingBorder
                     ErrorMessage="{Binding CategoryForm.TypeErrorMessage}"
                     HasError="{Binding CategoryForm.TypeErrorMessage, Converter={StaticResource StringToBoolConverter}}"
-                    Hint="*Tipo">
+                    Hint="*Tipo"
+                    Icone="fi_edit.png">
                     <Picker
                         Title="Selecione o tipo da categoria"
-                        ItemsSource="{Binding SelectedOperation}"
+                        ItemDisplayBinding="{Binding Converter={StaticResource OperationTypeConverter}}"
+                        ItemsSource="{Binding OperationTypes}"
                         SelectedItem="{Binding CategoryForm.Type}" />
                 </controlFB:FloatingBorder>
             </VerticalStackLayout>

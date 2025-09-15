@@ -51,7 +51,7 @@ namespace ControleGastosApp.ViewModels
                     Email = UserForm.Email,
                 };
 
-                await _registerUserUseCase.OnRegisterUserToDatabase(userDb);
+                await _registerUserUseCase.OnRegisterUserInDatabase(userDb);
 
                 //TODO - Implementar snackbar para registro criado com sucesso!
 

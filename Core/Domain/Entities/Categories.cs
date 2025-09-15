@@ -13,7 +13,7 @@ namespace ControleGastos.Core.Domain.Entities
         public string? Name { get; set; }
         public string? Icone { get; set; }
         public string? Color { get; set; }
-        public OperationType OperationType { get; set; }
+        public OperationType? OperationType { get; set; }
         public ICollection<Transactions> Transactions { get; set; } = [];
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }

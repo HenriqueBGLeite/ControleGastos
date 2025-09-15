@@ -17,9 +17,9 @@ namespace ControleGastos.Core.Application.UseCases.RegisterUser
             _userRepository = userRepository;
         }
 
-        public async Task OnRegisterUserToDatabase(Users user, CancellationToken ct = default)
+        public async Task OnRegisterUserInDatabase(Users user, CancellationToken ct = default)
         {
-            var normalize = user.Email?.ToLowerInvariant() ?? string.Empty;
+            var normalize = user.Email ?? string.Empty;
 
             var userExists = await _userRepository.GetByEmail(normalize, ct);
 
@@ -31,7 +31,7 @@ namespace ControleGastos.Core.Application.UseCases.RegisterUser
             user.CreatedAt = DateTimeOffset.Now;
             user.UpdatedAt = DateTimeOffset.Now;
 
-            await _userRepository.Add(user);
+            await _userRepository.Add(user, ct);
         }
     }
 }

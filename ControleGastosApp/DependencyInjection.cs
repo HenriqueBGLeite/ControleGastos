@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using ControleGastos.Core.Application.UseCases.Auth;
+using ControleGastos.Core.Application.UseCases.RegisterCategories;
 using ControleGastos.Core.Application.UseCases.RegisterUser;
 using ControleGastos.Core.Domain.Repositories;
 using ControleGastos.Database.Repositories;
@@ -91,8 +92,9 @@ namespace ControleGastosApp
 
         private static IServiceCollection AddApplicationLayer(this IServiceCollection services)
         {
-            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
             services.AddScoped<IAuthUseCase, AuthUseCase>();
+            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IRegisterCategoryUseCase, RegisterCategoryUseCase>();
 
             return services;
         }

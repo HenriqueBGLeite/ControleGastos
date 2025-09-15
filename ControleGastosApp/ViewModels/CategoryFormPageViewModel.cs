@@ -1,7 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using ControleGastos.Core.Application.UseCases.RegisterCategories;
+using ControleGastos.Core.Domain.Entities;
 using ControleGastos.Core.Domain.Enums;
+using ControleGastosApp.Services.Alert;
 using ControleGastosApp.Services.Navigate;
+using ControleGastosApp.Services.Session;
 using ControleGastosApp.ViewModels.Base;
 using ControleGastosApp.ViewModels.FormModels;
 using System;
@@ -16,27 +21,64 @@ namespace ControleGastosApp.ViewModels
     public partial class CategoryFormPageViewModel : BaseViewModel
     {
         private INavigateService _navigationService;
+        private IShellAlertService _shellAlertService;
+        private ISessionService _sessionService;
+        private IRegisterCategoryUseCase _registerCategoryUseCase;
 
-        [ObservableProperty]
-        public partial OperationType? SelectedOperation { get; set; } = OperationType.Expense;
+        public IEnumerable<OperationType> OperationTypes { get; } = Enum.GetValues(typeof(OperationType)).Cast<OperationType>();
 
         [ObservableProperty]
         public partial RegisterCategoryFormModel CategoryForm {  get; set; }
 
-        public CategoryFormPageViewModel(INavigateService navigateService, 
-            RegisterCategoryFormModel categoryForm)
+        public CategoryFormPageViewModel(INavigateService navigateService,
+            RegisterCategoryFormModel categoryForm,
+            IShellAlertService shellAlertService,
+            ISessionService sessionService,
+            IRegisterCategoryUseCase registerCategoryUseCase)
         {
             CategoryForm = categoryForm;
             _navigationService = navigateService;
+            _shellAlertService = shellAlertService;
+            _sessionService = sessionService;
+            _registerCategoryUseCase = registerCategoryUseCase;
         }
 
         [RelayCommand]
         private async Task OnSavedCategoryOnDatabase()
         {
-            bool isValid = CategoryForm.Validate();
+            try
+            {
+                bool isValid = CategoryForm.Validate();
 
-            if (!isValid)
-                return;
+                if (!isValid)
+                    return;
+
+                var userLogged = _sessionService.GetUserLogged();
+
+                Categories category = new()
+                {
+                    Name = CategoryForm.Name,
+                    OperationType = CategoryForm.Type,
+                    Icone = "email.png",
+                    Color = "#E7ECB7",
+                    UserId = userLogged!.Id
+                };
+
+                await _registerCategoryUseCase.OnRegisterCategoryInDatabase(category);
+
+                //TODO - Implementar snackbar para registro criado com sucesso!
+
+                WeakReferenceMessenger.Default.Send(string.Empty);
+
+                await _shellAlertService.ShowSnackBar("Registro salvo com sucesso");
+
+                await _navigationService.GoBackAsync();
+            }
+            catch (Exception ex)
+            {
+                //TODO - Implementar snackbar para erro ao criado
+                await _shellAlertService.ShowSnackBar($"Erro ao salvar registro. \n\n {ex.Message}");
+            }
         }
 
         [RelayCommand]

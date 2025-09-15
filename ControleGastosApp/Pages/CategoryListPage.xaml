@@ -4,105 +4,174 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:ControleGastosApp.Pages.Base"
+    xmlns:entities="clr-namespace:ControleGastos.Core.Domain.Entities;assembly=ControleGastos.Core"
     xmlns:enum="clr-namespace:ControleGastos.Core.Domain.Enums;assembly=ControleGastos.Core"
     xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:pages="clr-namespace:ControleGastosApp.Pages"
     xmlns:vm="clr-namespace:ControleGastosApp.ViewModels"
+    x:Name="ListCategoryPage"
     Title=""
     x:DataType="vm:CategoryListPageViewModel">
-    <ScrollView>
-        <Grid RowDefinitions="Auto, Auto, *" RowSpacing="20">
-            <Grid Padding="22,30" ColumnDefinitions="Auto, *">
-                <Image
-                    HorizontalOptions="Start"
-                    Source="fi_arrow_left.png"
-                    VerticalOptions="Center"
-                    WidthRequest="26">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TapToBackCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
+    <Grid RowDefinitions="Auto, Auto, *" RowSpacing="20">
+        <Grid Padding="22,30" ColumnDefinitions="Auto, *">
+            <Image
+                HorizontalOptions="Start"
+                Source="fi_arrow_left.png"
+                VerticalOptions="Center"
+                WidthRequest="26">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapToBackCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
 
-                <Label
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource TitlePage}"
-                    Text="Categorias" />
-            </Grid>
-            <Border
-                Grid.Row="1"
-                Padding="0"
-                Background="{StaticResource White}"
-                HorizontalOptions="Center"
-                Style="{StaticResource BorderPickerStyle}">
-                <HorizontalStackLayout Spacing="0">
-                    <Border x:Name="ExpenseBorder" Style="{StaticResource BorderRoundOptionsEnumStyle}">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SelectedOperationCommand}" CommandParameter="{x:Static enum:OperationType.Expense}" />
-                        </Border.GestureRecognizers>
-                        <Border.Triggers>
-                            <DataTrigger
-                                Binding="{Binding SelectedOperation}"
-                                TargetType="Border"
-                                Value="{x:Static enum:OperationType.Expense}">
-                                <Setter Property="Background" Value="{StaticResource LightGreen}" />
-                            </DataTrigger>
-                        </Border.Triggers>
-                        <Label
-                            Style="{StaticResource OptionsEnum}"
-                            Text="Despesa"
-                            TextColor="{StaticResource ActionRed}" />
-                    </Border>
-                    <Border x:Name="IncomeBorder" Style="{StaticResource BorderRoundOptionsEnumStyle}">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SelectedOperationCommand}" CommandParameter="{x:Static enum:OperationType.Income}" />
-                        </Border.GestureRecognizers>
-                        <Border.Triggers>
-                            <DataTrigger
-                                Binding="{Binding SelectedOperation}"
-                                TargetType="Border"
-                                Value="{x:Static enum:OperationType.Income}">
-                                <Setter Property="Background" Value="{StaticResource LightGreen}" />
-                            </DataTrigger>
-                        </Border.Triggers>
-
-                        <Label
-                            Style="{StaticResource OptionsEnum}"
-                            Text="Receita"
-                            TextColor="{StaticResource DarkGreen}" />
-                    </Border>
-                </HorizontalStackLayout>
-            </Border>
-            <Border
-                Grid.Row="2"
-                Background="{StaticResource AdjacentGreen}"
-                Style="{StaticResource BorderRoundCardStyle}">
-                <Grid>
-                    <CollectionView>
-                        <CollectionView.EmptyViewTemplate>
-                            <DataTemplate>
-                                <Label
-                                    HorizontalTextAlignment="Center"
-                                    Text="Nenhuma categoria cadastrada"
-                                    TextColor="{StaticResource White}"
-                                    VerticalTextAlignment="Center" />
-                            </DataTemplate>
-                        </CollectionView.EmptyViewTemplate>
-                    </CollectionView>
-
-                    <Border
-                        Margin="0,0,22,30"
-                        Background="{StaticResource White}"
-                        HeightRequest="83"
-                        HorizontalOptions="End"
-                        StrokeShape="RoundRectangle 41.5"
-                        VerticalOptions="End"
-                        WidthRequest="83">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapGoToRegisterCategoryCommand}" />
-                        </Border.GestureRecognizers>
-                        <Image Source="fi_plus_circle.png" WidthRequest="75" />
-                    </Border>
-                </Grid>
-            </Border>
+            <Label
+                Grid.ColumnSpan="2"
+                Style="{StaticResource TitlePage}"
+                Text="Categorias" />
         </Grid>
-    </ScrollView>
+        <Border
+            Grid.Row="1"
+            Padding="0"
+            Background="{StaticResource White}"
+            HorizontalOptions="Center"
+            Style="{StaticResource BorderPickerStyle}">
+            <HorizontalStackLayout Spacing="0">
+                <Border x:Name="ExpenseBorder" Style="{StaticResource BorderRoundOptionsEnumStyle}">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectedOperationCommand}" CommandParameter="{x:Static enum:OperationType.Expense}" />
+                    </Border.GestureRecognizers>
+                    <Border.Triggers>
+                        <DataTrigger
+                            Binding="{Binding SelectedOperation}"
+                            TargetType="Border"
+                            Value="{x:Static enum:OperationType.Expense}">
+                            <Setter Property="Background" Value="{StaticResource LightGreen}" />
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <Label
+                        Style="{StaticResource OptionsEnum}"
+                        Text="Despesa"
+                        TextColor="{StaticResource ActionRed}" />
+                </Border>
+                <Border x:Name="IncomeBorder" Style="{StaticResource BorderRoundOptionsEnumStyle}">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectedOperationCommand}" CommandParameter="{x:Static enum:OperationType.Income}" />
+                    </Border.GestureRecognizers>
+                    <Border.Triggers>
+                        <DataTrigger
+                            Binding="{Binding SelectedOperation}"
+                            TargetType="Border"
+                            Value="{x:Static enum:OperationType.Income}">
+                            <Setter Property="Background" Value="{StaticResource LightGreen}" />
+                        </DataTrigger>
+                    </Border.Triggers>
+
+                    <Label
+                        Style="{StaticResource OptionsEnum}"
+                        Text="Receita"
+                        TextColor="{StaticResource DarkGreen}" />
+                </Border>
+            </HorizontalStackLayout>
+        </Border>
+        <Border
+            Grid.Row="2"
+            Background="{StaticResource White}"
+            Style="{StaticResource BorderRoundCardStyle}">
+            <Grid>
+                <CollectionView
+                    x:Name="CategoriesCV"
+                    ItemsSource="{Binding ListFilteredCategories}"
+                    SelectionMode="None">
+                    <CollectionView.EmptyViewTemplate>
+                        <DataTemplate>
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Nenhuma categoria cadastrada"
+                                TextColor="{StaticResource NewBlack}"
+                                VerticalTextAlignment="Center" />
+                        </DataTemplate>
+                    </CollectionView.EmptyViewTemplate>
+                    <CollectionView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Padding="22,10"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 2*"
+                                ColumnSpacing="10"
+                                RowDefinitions="Auto, *"
+                                RowSpacing="14">
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="OpenSansBold"
+                                    Text="Nome"
+                                    TextColor="{StaticResource NewBlack}" />
+                                <Label
+                                    Grid.Column="2"
+                                    FontFamily="OpenSansBold"
+                                    Text="Tipo"
+                                    TextColor="{StaticResource NewBlack}" />
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="5"
+                                    HeightRequest="1"
+                                    Color="{StaticResource maker}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.HeaderTemplate>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="entities:Categories">
+                            <Grid
+                                Padding="22,10"
+                                ColumnDefinitions="0.9*, 3*, 1.5*, 2*"
+                                ColumnSpacing="10"
+                                RowDefinitions="Auto, *"
+                                RowSpacing="14">
+                                <Border BackgroundColor="{Binding Color}" Style="{StaticResource BorderRoundCircleCollectionItemStyle}">
+                                    <Image Source="{Binding Icone}" WidthRequest="22" />
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    TextColor="{StaticResource NewBlack}"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    Grid.Column="2"
+                                    Text="{Binding OperationType, Converter={StaticResource EnumDisplayNameConverter}}"
+                                    TextColor="{StaticResource NewBlack}"
+                                    VerticalTextAlignment="Center" />
+                                <HorizontalStackLayout Grid.Column="3" x:DataType="{x:Null}">
+                                    <ImageButton
+                                        Command="{Binding Path=BindingContext.TapEditFormCategoryCommand, Source={RelativeSource AncestorType={x:Type pages:CategoryListPage}}}"
+                                        CommandParameter="{Binding .}"
+                                        Source="fi_edit.png"
+                                        WidthRequest="40" />
+                                    <ImageButton
+                                        Command="{Binding Path=BindingContext.TapDeleteCategoryCommand, Source={RelativeSource AncestorType={x:Type pages:CategoryListPage}}}"
+                                        CommandParameter="{Binding .}"
+                                        Source="trash.png"
+                                        WidthRequest="22" />
+                                </HorizontalStackLayout>
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="5"
+                                    HeightRequest="1"
+                                    Color="{StaticResource BackgroundTransaparent}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Border>
+
+        <Border
+            Grid.RowSpan="3"
+            HorizontalOptions="End"
+            Style="{StaticResource BorderRoundCircleStyle}"
+            VerticalOptions="End">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TapGoToRegisterCategoryCommand}" />
+            </Border.GestureRecognizers>
+            <Image Source="fi_plus_circle.png" WidthRequest="66" />
+        </Border>
+    </Grid>
 </base:BasePage>
